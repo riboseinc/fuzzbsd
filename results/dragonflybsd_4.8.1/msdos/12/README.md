@@ -26,4 +26,4 @@ Stopped at      Debugger+0x7c:  movb $0,0xd9df69(%rip)
 db>
 ```
 
-![alt text](https://github.com/riboseinc/fuzzbsd/blob/master/results/dragonflybsd_4.8.1/msdos/12/dragonflybsd_4.8.1-image-fuzzbsd-msdos-12.128.png "dragonflybsd")
+![alt](https://github.com/riboseinc/fuzzbsd/blob/master/results/dragonflybsd_4.8.1/msdos/12/dragonflybsd_4.8.1-image-fuzzbsd-msdos-12.128.png "dragonflybsd_4.8.1")
