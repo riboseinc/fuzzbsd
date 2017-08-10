@@ -1,0 +1,13 @@
+$ sudo ./gen_fs_images.sh 
+[*] NTFS fs image created:
+ntfs.img: x86 boot sector, mkdosfs boot message display, code offset 0x52, OEM-ID "NTFS    ", sectors/cluster 8, reserved sectors 0, Media descriptor 0xf8, dos < 4.0 BootSector (0x80)
+-rw-r--r-- 1 root root 1049600 Aug  3 19:12 ntfs.img
+[*] msdos fs image created:
+msdosfs.img: DOS floppy 1440k, x86 hard disk boot sector
+-rw-r--r-- 1 root root 1474560 Aug  3 19:12 msdosfs.img
+[*] iso image created:
+iso.img: # ISO 9660 CD-ROM filesystem data 'foobarbaz'
+-rw-r--r-- 1 root root 421888 Aug  3 19:12 iso.img
+[*] ext2 fs image created:
+ext2fs.img: Linux rev 1.0 ext2 filesystem data, UUID=a7eebb1f-a507-4f1e-81e0-1a2af651223d
+-rw-r--r-- 1 root root 1048576 Aug  3 19:12 ext2fs.img

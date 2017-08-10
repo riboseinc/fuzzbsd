@@ -1,0 +1,122 @@
+Copyright (c) 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005,
+    2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017
+    The NetBSD Foundation, Inc.  All rights reserved.
+Copyright (c) 1982, 1986, 1989, 1991, 1993
+    The Regents of the University of California.  All rights reserved.
+
+NetBSD 7.1 (GENERIC.201703111743Z)
+total memory = 1023 MB
+avail memory = 976 MB
+kern.module.path=/stand/amd64/7.1/modules
+timecounter: Timecounters tick every 10.000 msec
+timecounter: Timecounter "i8254" frequency 1193182 Hz quality 100
+innotek GmbH VirtualBox (1.2)
+mainbus0 (root)
+ACPI: RSDP 0xe0000 000024 (v02 VBOX  )
+ACPI: XSDT 0x3fff0030 00003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
+ACPI: FACP 0x3fff00f0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
+ACPI: DSDT 0x3fff0470 0021C8 (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
+ACPI: FACS 0x3fff0200 000040
+ACPI: APIC 0x3fff0240 000054 (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
+ACPI: SSDT 0x3fff02a0 0001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20100528)
+ACPI: All ACPI Tables successfully acquired
+ioapic0 at mainbus0 apid 1: pa 0xfec00000, version 0x20, 24 pins
+cpu0 at mainbus0 apid 0: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz, id 0x40661
+acpi0 at mainbus0: Intel ACPICA 20131218
+acpi0: X/RSDT: OemId <VBOX  ,VBOXXSDT,00000001>, AslId <ASL ,00000061>
+acpi0: SCI interrupting at int 9
+timecounter: Timecounter "ACPI-Safe" frequency 3579545 Hz quality 900
+pckbc1 at acpi0 (PS2K, PNP0303) (kbd port): io 0x60,0x64 irq 1
+pckbc2 at acpi0 (PS2M, PNP0F03) (aux port): irq 12
+attimer1 at acpi0 (TIMR, PNP0100): io 0x40-0x43,0x50-0x53
+acpivga0 at acpi0 (GFX0): ACPI Display Adapter
+acpiout0 at acpivga0 (VGA, 0x0100): ACPI Display Output Device
+acpivga0: connected output devices:
+acpivga0:   0x0100 (acpiout0): VGA Analog Monitor, index 0, port 0, head 0
+acpibat0 at acpi0 (BAT0, PNP0C0A-0): ACPI Battery
+acpibat0: innotek VBOX rechargeable battery
+acpibat0: granularity: low->warn 0.001 Wh, warn->full 0.001 Wh
+acpiacad0 at acpi0 (AC, ACPI0003-0): ACPI AC Adapter
+ACPI: Enabled 2 GPEs in block 00 to 07
+ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S1_] (20131218/hwxface-646)
+ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S2_] (20131218/hwxface-646)
+ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S3_] (20131218/hwxface-646)
+ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S4_] (20131218/hwxface-646)
+pckbd0 at pckbc1 (kbd slot)
+pckbc1: using irq 1 for kbd slot
+wskbd0 at pckbd0: console keyboard
+pms0 at pckbc1 (aux slot)
+pckbc1: using irq 12 for aux slot
+wsmouse0 at pms0 mux 0
+pci0 at mainbus0 bus 0: configuration mode 1
+pci0: i/o space, memory space enabled, rd/line, rd/mult, wr/inv ok
+pchb0 at pci0 dev 0 function 0: vendor 0x8086 product 0x1237 (rev. 0x02)
+pcib0 at pci0 dev 1 function 0: vendor 0x8086 product 0x7000 (rev. 0x00)
+piixide0 at pci0 dev 1 function 1: Intel 82371AB IDE controller (PIIX4) (rev. 0x01)
+piixide0: bus-master DMA support present
+piixide0: primary channel configured to compatibility mode
+piixide0: primary channel interrupting at ioapic0 pin 14
+atabus0 at piixide0 channel 0
+piixide0: secondary channel configured to compatibility mode
+piixide0: secondary channel interrupting at ioapic0 pin 15
+atabus1 at piixide0 channel 1
+vga0 at pci0 dev 2 function 0: vendor 0x80ee product 0xbeef (rev. 0x00)
+wsdisplay0 at vga0 kbdmux 1: console (80x25, vt100 emulation), using wskbd0
+wsmux1: connecting to wsdisplay0
+drm at vga0 not configured
+wm0 at pci0 dev 3 function 0: Intel i82540EM 1000BASE-T Ethernet (rev. 0x02)
+wm0: interrupting at ioapic0 pin 19
+wm0: 32-bit 33MHz PCI bus
+wm0: 64 words (6 address bits) MicroWire EEPROM
+wm0: Ethernet address 08:00:27:08:cf:84
+makphy0 at wm0 phy 1: Marvell 88E1011 Gigabit PHY, rev. 4
+makphy0: 10baseT, 10baseT-FDX, 100baseTX, 100baseTX-FDX, auto
+vendor 0x80ee product 0xcafe (miscellaneous system) at pci0 dev 4 function 0 not configured
+ohci0 at pci0 dev 6 function 0: vendor 0x106b product 0x003f (rev. 0x00)
+ohci0: interrupting at ioapic0 pin 22
+ohci0: OHCI version 1.0
+usb0 at ohci0: USB revision 1.0
+piixpm0 at pci0 dev 7 function 0: vendor 0x8086 product 0x7113 (rev. 0x08)
+piixpm0: interrupting at ioapic0 pin 23
+iic0 at piixpm0: I2C bus
+ehci0 at pci0 dev 11 function 0: vendor 0x8086 product 0x265c (rev. 0x00)
+ehci0: interrupting at ioapic0 pin 19
+ehci0: EHCI version 1.0
+usb1 at ehci0: USB revision 2.0
+isa0 at pcib0
+pcppi0 at isa0 port 0x61
+midi0 at pcppi0: PC speaker
+sysbeep0 at pcppi0
+attimer1: attached to pcppi0
+acpicpu0 at cpu0: ACPI CPU
+acpicpu0: C1: HLT, lat   0 us, pow     0 mW
+timecounter: Timecounter "clockinterrupt" frequency 100 Hz quality 0
+timecounter: Timecounter "TSC" frequency 2294869580 Hz quality 3000
+acpiacad0: AC adapter online.
+IPsec: Initialized Security Association Processing.
+uhub0 at usb0: vendor 0x106b OHCI root hub, class 9/0, rev 1.00/1.00, addr 1
+uhub0: 12 ports with 12 removable, self powered
+uhub1 at usb1: vendor 0x8086 EHCI root hub, class 9/0, rev 2.00/1.00, addr 1
+uhub1: 12 ports with 12 removable, self powered
+wd0 at atabus0 drive 0
+wd0: <VBOX HARDDISK>
+wd0: drive supports 128-sector PIO transfers, LBA addressing
+wd0: 16384 MB, 33288 cyl, 16 head, 63 sec, 512 bytes/sect x 33554432 sectors
+wd0: 32-bit data port
+wd0: drive supports PIO mode 4, DMA mode 2, Ultra-DMA mode 6 (Ultra/133)
+wd0(piixide0:0:0): using PIO mode 4, Ultra-DMA mode 2 (Ultra/33) (using DMA)
+atapibus0 at atabus1: 2 targets
+cd0 at atapibus0 drive 0: <VBOX CD-ROM, VB2-01700376, 1.0> cdrom removable
+cd0: 32-bit data port
+cd0: drive supports PIO mode 4, DMA mode 2, Ultra-DMA mode 6 (Ultra/133)
+cd0(piixide0:1:0): using PIO mode 4, Ultra-DMA mode 2 (Ultra/33) (using DMA)
+Kernelized RAIDframe activated
+pad0: outputs: 44100Hz, 16-bit, stereo
+audio0 at pad0: half duplex, playback, capture
+boot device: wd0
+root on wd0a dumps on wd0b
+root file system type: ffs
+wsdisplay0: screen 1 added (80x25, vt100 emulation)
+wsdisplay0: screen 2 added (80x25, vt100 emulation)
+wsdisplay0: screen 3 added (80x25, vt100 emulation)
+wsdisplay0: screen 4 added (80x25, vt100 emulation)
