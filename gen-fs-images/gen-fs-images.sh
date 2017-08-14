@@ -11,10 +11,18 @@ errx() {
 	exit 1
 }
 
+readonly release="/etc/redhat-release"
+[ ! -f "${release}" ] && \
+	errx "not a RHEL-like system"
+
+grep -q CentOS "${release}" || \
+	errx "only CentOS is supported"
+
 readonly ntfs_img="ntfs.img"
 readonly msdos_img="msdosfs.img"
 readonly iso_img="iso.img"
 readonly ext2_img="ext2fs.img"
+readonly dvd_img="dvd.img"
 
 readonly losetup="/usr/sbin/losetup"
 [ ! -x "${losetup}" ] && \
@@ -106,6 +114,38 @@ gen_iso() {
 	ls -la "${iso_img}"
 }
 
+gen_dvd() {
+	local dvdtmpdir="dvd"
+	local label="foobarbaz"
+
+	if [ ! -d "${dvdtmpdir}" ]; then
+		mkdir "${dvdtmpdir}" || \
+			errx "mkdir '${dvdtmpdir}' failed"
+	fi
+
+	# create a dummy directory structure
+	for ((i=0; i < 16; i++)); do
+		if [ ! -d "${dvdtmpdir}/${i}" ]; then
+			mkdir "${dvdtmpdir}/${i}" || \
+				errx "mkdir '${dvdtmpdir}/${i}' failed"
+		fi
+
+		echo "${i}" > "${dvdtmpdir}/${i}/${i}"
+	done
+
+	"${mkisofs}" -udf -V "${label}" -o "${dvd_img}" "${dvdtmpdir}" 2>/dev/null >&2
+	if [ $? -ne 0 ]; then
+		rm -rf "${dvdtmpdir}"
+		errx "${mkisofs} '${dvd_img}' failed"
+	fi
+
+	rm -rf "${dvdtmpdir}"
+
+	echo "[*] dvd image created:"
+	file "${dvd_img}"
+	ls -la "${dvd_img}"
+}
+
 gen_ext2() {
 	local bs="$[1024 * 1024]"
 
@@ -132,6 +172,7 @@ main() {
 	gen_ntfs
 	gen_msdos
 	gen_iso
+	gen_dvd
 	gen_ext2
 }
 

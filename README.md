@@ -12,16 +12,13 @@ The following BSDs are supported:
 - FreeBSD 11
 - DragonFlyBSD 4.8
 - Darwin 16.7.0 / macOS Sierra (COMING)
-- FreeNAS (COMING)
-- MirOS (COMING)
 
 The following filesystem image types are currently supported:
 - msdosfs
 - NTFS
 - ISO 9660
 - ext2fs
-- ZFS (COMING)
-- UFS (COMING)
+- UDF
 
 The filesystem images used have been pre-made on CentOS 7 with the ```gen-fs-images/gen-fs-images.sh``` script. This script allows you to recreate the filesystem images yourself if you don't trust the ones I have made. Not every BSD supports each filesystem out of the box, so it really depends on which flavor of BSD you are running FuzzBSD on.
 

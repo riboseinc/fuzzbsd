@@ -1,6 +1,8 @@
 #!/bin/sh
 #
-# fuzzbsd.sh - FuzzBSD, a filesystem image fuzzing script to test BSD kernels.
+# fuzzbsd.sh v1.1
+#
+# FuzzBSD, a filesystem image fuzzing script to test BSD kernels.
 #
 # A valid filesystem image gets corrupted by changing a the hex value of a
 # single offset 255 times (0x00 - 0xff). FuzzBSD will then loop through each of
@@ -26,8 +28,8 @@
 # - NTFS
 # - ISO 9660
 # - ext2fs
+# - UDF
 # - ZFS (COMING)
-# - UFS (COMING)
 #
 # The filesystem images used have been pre-made on CentOS 7 with the
 # 'gen-fs-images/gen-fs-images.sh' script. This script allows you to recreate
@@ -43,7 +45,7 @@ readonly header="2048"
 readonly mount="fuzzbsd"
 
 usage() {
-	echo "usage: ${__progname} <type [msdos|ntfs|ext2fs|cd9660]> <fs image> [offset]" >&2
+	echo "usage: ${__progname} <type [msdos|ntfs|ext2fs|cd9660|udf]> <fs image> [offset]" >&2
 }
 
 confdisk_fbsd() {
@@ -158,6 +160,8 @@ case "${fuzztype}" in
 	ext2fs)
 		;;
 	cd9660)
+		;;
+	udf)
 		;;
 	*)
 		usage
@@ -280,6 +284,9 @@ while [ "${offset}" -lt "${header}" ]; do
 		else
 			mount -t "${fuzztype}" "${dev_path}" "${mountpoint}"
 		fi
+
+		# this might cause a panic too
+		echo "[*] $(date) umount '${mountpoint}'" | tee -a "${log}"
 
 		# if the mount was succesful then proceed to umount
 		unmount_mountpoint "${mountpoint}"
