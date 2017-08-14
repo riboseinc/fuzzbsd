@@ -1,5 +1,5 @@
 ```
-# kgdb kern.0 vmcore.0 
+# kgdb kernel.0 vmcore.0
 GNU gdb (GDB) 7.6.1
 Copyright (C) 2013 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -9,7 +9,19 @@ and "show warranty" for details.
 This GDB was configured as "x86_64-dragonfly".
 For bug reporting instructions, please see:
 <http://bugs.dragonflybsd.org/>...
-Reading symbols from /var/crash/kern.0...done.
+kernel.0: No such file or directory.
+(kgdb) q
+foobar# kgdb kern.1 vmcore.1
+GNU gdb (GDB) 7.6.1
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-dragonfly".
+For bug reporting instructions, please see:
+<http://bugs.dragonflybsd.org/>...
+Reading symbols from /var/crash/kern.1...done.
 
 Unread portion of the kernel message buffer:
 Copyright (c) 2003-2017 The DragonFly Project.
@@ -18,8 +30,8 @@ Copyright (c) 1979, 1980, 1983, 1986, 1988, 1989, 1991, 1992, 1993, 1994
 	The Regents of the University of California. All rights reserved.
 DragonFly v4.8.1-RELEASE #5: Tue Aug  1 23:19:38 EDT 2017
     root@www.shiningsilence.com:/usr/obj/home/justin/release/4_8/sys/X86_64_GENERIC
-i8254 clock: 1193196 Hz
-TSC invariant clock: 2294702639 Hz
+i8254 clock: 1193184 Hz
+TSC invariant clock: 2294697332 Hz
 CPU: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz (2294.70-MHz K8-class CPU)
   Origin = "GenuineIntel"  Id = 0x40661  Stepping = 1
   Features=0x783fbff<FPU,VME,DE,PSE,TSC,MSR,PAE,MCE,CX8,APIC,SEP,MTRR,PGE,MCA,CMOV,PAT,PSE36,MMX,FXSR,SSE,SSE2>
@@ -29,11 +41,11 @@ CPU: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz (2294.70-MHz K8-class CPU)
   Structured Extended Features=0x2000
 real memory  = 132709376 (126 MB)
 avail memory = 81620992 (77 MB)
-lapic: divisor index 0, frequency 500003407 Hz
+lapic: divisor index 0, frequency 500004155 Hz
 srat_probe: can't locate SRAT
-SMI Frequency (worst case): 40000 Hz (25 us)
+SMI Frequency (worst case): 17543 Hz (57 us)
 Initialize MI interrupts
-TSC: cputimer freq 71709457, shift 5
+TSC: cputimer freq 71709291, shift 5
 VMM: VMX is not supported by this Intel CPU
 wdog: In-kernel automatic watchdog reset enabled
 kbd1 at kbdmux0
@@ -116,7 +128,6 @@ cd0: Attempt to query device size failed: NOT READY, Medium not present
 uhub1: 12 ports with 12 removable, self powered
 no B_DEVMAGIC (bootdev=0)
 Mounting root from ufs:serno/VB72453a18-bfd99f8c.s1d
-WARNING:  was not properly dismounted
 DMA space used: 160k, remaining available: 1248k
 Mounting devfs
 <118>Loading configuration files.
@@ -128,63 +139,14 @@ Mounting devfs
 <118>dumpon: crash dumps to /dev/ad0s1b (21, 0x20001)
 <118>Starting file system checks:
 <118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239810  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=4 MTIME=Aug 14 21:25 2017  (CLEARED)
+<118>FILESYSTEM CLEAN; SKIPPING CHECKS
 <118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239811  OWNER=root MODE=140666
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=0 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239812  OWNER=root MODE=140666
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=0 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239813  OWNER=root MODE=100600
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=3 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239814  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=32768 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239815  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=144 MTIME=Aug 14 21:26 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239816  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=0 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239820  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=5148 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239821  OWNER=root MODE=100444
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=193 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239823  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=4 MTIME=Aug 14 21:25 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>UNREF FILE
-<118> I=3239824  OWNER=root MODE=100644
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: SIZE=6144 MTIME=Aug 14 21:26 2017  (CLEARED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>FREE BLK COUNT(S) WRONG IN SUPERBLK
-<118> (SALVAGED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>SUMMARY INFORMATION BAD
-<118> (SALVAGED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>BLK(S) MISSING IN BIT MAPS
-<118> (SALVAGED)
-<118>/dev/serno/VB72453a18-bfd99f8c.s1d: 
-<118>35122 files, 1669043 used, 11946320 free 
-<118>(2784 frags, 1492942 blocks, 0.0% fragmentation)
+<118>clean, 11841745 free 
+<118>(2793 frags, 1479869 blocks, 0.0% fragmentation)
 <118>/dev/serno/VB72453a18-bfd99f8c.s1a: 
-<118>692 files, 77908 used, 438163 free 
+<118>FILESYSTEM CLEAN; SKIPPING CHECKS
+<118>/dev/serno/VB72453a18-bfd99f8c.s1a: 
+<118>clean, 438163 free 
 <118>(155 frags, 54751 blocks, 0.0% fragmentation)
 <118>Setting hostname: foobar.localdomain.
 <118>starting dhclient on em0
@@ -206,23 +168,8 @@ Mounting devfs
 <118>.
 <118>Building databases...
 <118>Starting syslogd.
-<118>Aug 14 21:32:02 foobar syslogd: kernel boot file is /boot/kernel/kernel
-<118>savecore: reboot
-<118>Aug 14 21:32:02 foobar savecore: reboot
-<118>savecore: writing kernel to kern.0
-Warning: The system would like to page to swap but no swap space is configured!
-Warning: system low on memory+swap shortage 388 for 0 ticks!
-<3>pid 440 (devd), uid 0, was killed: out of swap space
-Warning: system low on memory+swap shortage 978 for 4 ticks!
-Warning: system low on memory+swap shortage 1022 for 8 ticks!
-<118>Aug 14 21:32:02 foobar kernel: pid 440 (devd), uid 0, was killed: out of swap space
-Warning: system low on memory+swap shortage 733 for 13 ticks!
-Warning: system low on memory+swap shortage 1051 for 18 ticks!
-Warning: system low on memory+swap shortage 1323 for 119 ticks!
-<3>pid 516 (savecore), uid 0, was killed: out of swap space
-<118>Aug 14 21:32:03 foobar kernel: pid 516 (savecore), uid 0, was killed: out of swap space
-<118>Killed
-<118>/var/crash/vmcore.0 not found
+<118>Aug 15 02:03:57 foobar syslogd: kernel boot file is /boot/kernel/kernel
+<118>No core dumps found.
 swap low/high-water marks set to 16760/25140
 <118>swapon: adding /dev/serno/VB72453a18-bfd99f8c.s1b as swap device
 <118>ELF ldconfig path: /lib /usr/lib /usr/local/lib /usr/local/libdata/ldconfig/perl5
@@ -248,46 +195,43 @@ swap low/high-water marks set to 16760/25140
 <118>.
 <118>Additional TCP options:
 <118>.
-<118>Mon Aug 14 21:32:04 HKT 2017
-<118>Aug 14 21:32:38 foobar savecore: reboot
-<118>Aug 14 21:36:30 foobar login: ROOT LOGIN (root) ON ttyv0
+<118>
+<118>Tue Aug 15 02:03:58 HKT 2017
+<118>Aug 15 02:04:10 foobar login: ROOT LOGIN (root) ON ttyv0
 
 
 Fatal trap 18: integer divide fault while in kernel mode
 cpuid = 0; lapic->id = 00000000
 instruction pointer	= 0x8:0xffffffff82c009c8
-stack pointer	        = 0x10:0xffffff8051e311b8
-frame pointer	        = 0x10:0xffffff8051e312f8
+stack pointer	        = 0x10:0xffffff8051db31b8
+frame pointer	        = 0x10:0xffffff8051db32f8
 code segment		= base 0x0, limit 0xfffff, type 0x1b
 			= DPL 0, pres 1, long 1, def32 0, gran 1
 processor eflags	= interrupt enabled, resume, IOPL = 0
-current process		= 986
+current process		= 963
 current thread          = pri 6 
 kernel: type 18 trap, code=0
 
 CPU0 stopping CPUs: 0x00000000
  stopped
 Physical memory: 87 MB
-Dumping 1110 MB: 1095 1079 1063 1047 1031 1015 999 983 967 951 935 919 903 887 871 855 839 823 807 791 775 759 743 727 711 695 679 663 647 631 615 599 583 567 551 535 519 503 487 471 455 439 423 407 391 375 359 343 327 311 295 279 263 247 231 215 199 183 167 151 135 119 103 87 71 55 39 23 7
+Dumping 1106 MB: 1091 1075 1059 1043 1027 1011 995 979 963 947 931 915 899 883 867 851 835 819 803 787 771 755 739 723 707 691 675 659 643 627 611 595 579 563 547 531 515 499 483 467 451 435 419 403 387 371 355 339 323 307 291 275 259 243 227 211 195 179 163 147 131 115 99 83 67 51 35 19 3
 
 [New kernel syncer14]
-[New pid 986/0, mount_ntfs]
-[New pid 985/0, mount]
-[New pid 977/0, csh]
-[New pid 505/0, syslogd]
-[New pid 945/0, login]
-[New pid 974/0, kgdb]
-[New pid 967/0, csh]
-[New pid 965/0, sshd]
-[New pid 815/0, sshd]
-[New pid 415/0, dhclient]
-[New pid 952/0, getty]
-[New pid 951/0, getty]
-[New pid 949/0, getty]
-[New pid 950/0, getty]
-[New pid 947/0, getty]
-[New pid 948/0, getty]
-[New pid 946/0, getty]
+[New pid 963/0, mount_ntfs]
+[New pid 962/0, mount]
+[New pid 960/0, sh]
+[New pid 952/0, csh]
+[New pid 500/0, syslogd]
+[New pid 410/0, dhclient]
+[New pid 941/0, getty]
+[New pid 940/0, getty]
+[New pid 939/0, getty]
+[New pid 938/0, getty]
+[New pid 937/0, getty]
+[New pid 935/0, getty]
+[New pid 936/0, getty]
+[New pid 934/0, login]
 [New kernel syscons7]
 [New kernel syscons6]
 [New kernel syscons5]
@@ -295,9 +239,11 @@ Dumping 1110 MB: 1095 1079 1063 1047 1031 1015 999 983 967 951 935 919 903 887 8
 [New kernel syscons3]
 [New kernel syscons2]
 [New kernel syscons1]
-[New pid 838/0, cron]
-[New pid 282/0, dhclient]
-[New pid 281/0, dhclient]
+[New pid 840/0, cron]
+[New pid 817/0, sshd]
+[New pid 435/0, devd]
+[New pid 288/0, dhclient]
+[New pid 287/0, dhclient]
 [New kernel syncer13]
 [New kernel syncer12]
 [New kernel syncer5]
@@ -371,18 +317,18 @@ _get_mycpu () at ./machine/thread.h:69
     aux_cmd_tablep_end=<optimized out>) at /home/justin/release/4_8/sys/ddb/db_command.c:400
 #4  db_command_loop () at /home/justin/release/4_8/sys/ddb/db_command.c:467
 #5  0xffffffff802b9742 in db_trap (type=type@entry=18, code=code@entry=0) at /home/justin/release/4_8/sys/ddb/db_trap.c:71
-#6  0xffffffff80a54576 in kdb_trap (type=type@entry=18, code=code@entry=0, regs=regs@entry=0xffffff8051e310e8)
+#6  0xffffffff80a54576 in kdb_trap (type=type@entry=18, code=code@entry=0, regs=regs@entry=0xffffff8051db30e8)
     at /home/justin/release/4_8/sys/platform/pc64/x86_64/db_interface.c:176
-#7  0xffffffff80a5afaf in trap_fatal (frame=frame@entry=0xffffff8051e310e8, eva=eva@entry=0)
+#7  0xffffffff80a5afaf in trap_fatal (frame=frame@entry=0xffffff8051db30e8, eva=eva@entry=0)
     at /home/justin/release/4_8/sys/platform/pc64/x86_64/trap.c:1018
-#8  0xffffffff80a5b89a in trap (frame=0xffffff8051e310e8) at /home/justin/release/4_8/sys/platform/pc64/x86_64/trap.c:746
+#8  0xffffffff80a5b89a in trap (frame=0xffffff8051db30e8) at /home/justin/release/4_8/sys/platform/pc64/x86_64/trap.c:746
 #9  0xffffffff80a4403f in calltrap () at /home/justin/release/4_8/sys/platform/pc64/x86_64/exception.S:188
 #10 0xffffffff82c009c8 in ntfs_mountfs.isra.0 () from /boot/kernel/ntfs.ko
 #11 0xffffffff82c00df1 in ntfs_mount () from /boot/kernel/ntfs.ko
-#12 0xffffffff8067cefa in vfs_mount (mp=0x0, path=0xffffff8051aa13e0 "", data=0xffffff804eb1ddc0 "", cred=0xffffff8051e31390)
+#12 0xffffffff8067cefa in vfs_mount (mp=0x0, path=0xffffff8051aa0e60 "", data=0xffffff804eb1ddc0 "", cred=0xffffff8051db3390)
     at /home/justin/release/4_8/sys/kern/vfs_vfsops.c:93
 #13 0xffffffff806729fd in sys_mount (uap=<optimized out>) at /home/justin/release/4_8/sys/kern/vfs_syscalls.c:380
-#14 0xffffffff80a5c786 in syscall2 (frame=0xffffff8051e319f8) at /home/justin/release/4_8/sys/platform/pc64/x86_64/trap.c:1228
+#14 0xffffffff80a5c786 in syscall2 (frame=0xffffff8051db39f8) at /home/justin/release/4_8/sys/platform/pc64/x86_64/trap.c:1228
 #15 0xffffffff80a4428b in Xfast_syscall () at /home/justin/release/4_8/sys/platform/pc64/x86_64/exception.S:323
 #16 0x000000000000002b in ?? ()
 Backtrace stopped: previous frame inner to this frame (corrupt stack?)
