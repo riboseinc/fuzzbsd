@@ -183,8 +183,6 @@ swap low/high-water marks set to 16760/25140
 <118>.
 <118>Additional TCP options:
 <118>.
-<118>/etc/rc.d/sysctl: WARNING: sysctl kern.sync does not exist.
-<118>
 <118>Mon Aug 14 21:27:16 HKT 2017
 <118>Aug 14 21:27:21 foobar login: ROOT LOGIN (root) ON ttyv0
 Warning: number of clusters (2867) exceeds FAT capacity (0)

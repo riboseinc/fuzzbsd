@@ -182,8 +182,6 @@ swap low/high-water marks set to 16760/25140
 <118>.
 <118>Additional TCP options:
 <118>.
-<118>/etc/rc.d/sysctl: WARNING: sysctl kern.sync does not exist.
-<118>
 <118>Mon Aug 14 21:04:15 HKT 2017
 panic: getblk: size(98304) > MAXBSIZE(65536)
 cpuid = 0

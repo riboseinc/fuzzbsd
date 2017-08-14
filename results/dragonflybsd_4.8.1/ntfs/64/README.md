@@ -287,8 +287,6 @@ swap low/high-water marks set to 16760/25140
 <118>.
 <118>Additional TCP options:
 <118>.
-<118>/etc/rc.d/sysctl: WARNING: sysctl kern.sync does not exist.
-<118>
 <118>Mon Aug 14 21:38:41 HKT 2017
 <118>Aug 14 21:38:53 foobar login: ROOT LOGIN (root) ON ttyv0
 <118>Aug 14 21:39:01 foobar savecore: reboot
