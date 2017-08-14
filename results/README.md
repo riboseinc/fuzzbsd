@@ -5,7 +5,7 @@ Number of panics due to corrupt filesystem images:
 
 |              | msdosfs | ext2 | cd9660 | NTFS |
 |--------------|---------|------|--------|------|
-| DragonFlyBSD | 4       | 0    | 0      | 2    |
+| DragonFlyBSD | 3       | 0    | 0      | 2    |
 | NetBSD       | 4       | 0    | 0      | 1    |
 | OpenBSD      | 1       | 0    | 0      | 2    |
 | FreeBSD      | 1       | 0    | 0      | -    |

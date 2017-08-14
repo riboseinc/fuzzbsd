@@ -1,0 +1,138 @@
+# gdb --symbols=/netbsd --quiet --eval-command="file /netbsd" --eval-command="target kvm netbsd.0.core" --eval-command "bt" --eval-command "list" --eval-command "info all-registers"
+Reading symbols from /netbsd...done.
+Load new symbol table from "/netbsd"? (y or n) y
+Reading symbols from /netbsd...done.
+0xffffffff802a0fc0 in db_fncall ()
+#0  0xffffffff802a0fc0 in db_fncall ()
+#1  0xffffffff802a1687 in db_command ()
+#2  0xffffffff802a1a14 in db_command_loop ()
+#3  0xffffffff802a6f8d in db_trap ()
+#4  0xffffffff802a4240 in kdb_trap ()
+#5  0xffffffff808ac6be in trap ()
+#6  0xffffffff80100f46 in alltraps ()
+#7  0xffffffff802825bd in breakpoint ()
+#8  0xffffffff80869be9 in vpanic ()
+#9  0xffffffff80869cad in panic ()
+#10 0xffffffff80950db3 in buf_mempoolidx ()
+#11 0xffffffff80952a19 in allocbuf ()
+#12 0xffffffff809530a0 in getblk ()
+#13 0xffffffff809531a3 in bio_doread.isra.4 ()
+#14 0xffffffff8095328f in bread ()
+#15 0xffffffff806745d3 in fillinusemap ()
+#16 0xffffffff80676add in msdosfs_mountfs ()
+#17 0xffffffff8067721f in msdosfs_mount ()
+#18 0xffffffff8095c7df in VFS_MOUNT ()
+#19 0xffffffff8095a148 in mount_domount ()
+#20 0xffffffff8095ec86 in do_sys_mount ()
+#21 0xffffffff8095f056 in sys___mount50 ()
+#22 0xffffffff80884c2a in syscall ()
+#23 0xffffffff80100691 in Xsyscall ()
+1       /home/source/ab/netbsd-7-1-RELEASE/src/sys/conf/debugsyms.c: No such file or directory.
+rax            <unavailable>
+rbx            0xa      10
+rcx            <unavailable>
+rdx            <unavailable>
+rsi            <unavailable>
+rdi            <unavailable>
+rbp            0xfffffe800181c618       0xfffffe800181c618
+rsp            0xfffffe800181c580       0xfffffe800181c580
+r8             <unavailable>
+r9             <unavailable>
+r10            <unavailable>
+r11            <unavailable>
+r12            0xffffffff80fb0f40       -2131030208
+r13            0xffffffff801003e0       -2146434080
+r14            0x0      0
+r15            0x0      0
+rip            0xffffffff802a0fc0       0xffffffff802a0fc0 <db_fncall+167>
+eflags         <unavailable>
+cs             <unavailable>
+ss             <unavailable>
+ds             <unavailable>
+es             <unavailable>
+fs             0x0      0
+gs             0x0      0
+st0            <unavailable>
+st1            <unavailable>
+st2            <unavailable>
+st3            <unavailable>
+st4            <unavailable>
+st5            <unavailable>
+st6            <unavailable>
+st7            <unavailable>
+fctrl          <unavailable>
+fstat          <unavailable>
+ftag           <unavailable>
+fiseg          <unavailable>
+fioff          <unavailable>
+foseg          <unavailable>
+fooff          <unavailable>
+fop            <unavailable>
+xmm0           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm1           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm2           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm3           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm4           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+---Type <return> to continue, or q <return> to quit---
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm5           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm6           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm7           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm8           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm9           {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm10          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm11          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm12          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm13          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm14          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+---Type <return> to continue, or q <return> to quit---
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+xmm15          {v4_float = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_double = {<unavailable>, <unavailable>}, v16_int8 = {
+    <unavailable> <repeats 16 times>}, v8_int16 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, <unavailable>, 
+    <unavailable>}, v4_int32 = {<unavailable>, <unavailable>, <unavailable>, <unavailable>}, v2_int64 = {<unavailable>, <unavailable>}, 
+  uint128 = <unavailable>}
+mxcsr          <unavailable>
+(gdb)

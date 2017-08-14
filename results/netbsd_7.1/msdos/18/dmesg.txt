@@ -1,3 +1,4 @@
+# dmesg -M netbsd.0.core -N netbsd.0
 Copyright (c) 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005,
     2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017
     The NetBSD Foundation, Inc.  All rights reserved.
@@ -5,20 +6,20 @@ Copyright (c) 1982, 1986, 1989, 1991, 1993
     The Regents of the University of California.  All rights reserved.
 
 NetBSD 7.1 (GENERIC.201703111743Z)
-total memory = 1023 MB
-avail memory = 976 MB
+total memory = 65084 KB
+avail memory = 45028 KB
 kern.module.path=/stand/amd64/7.1/modules
 timecounter: Timecounters tick every 10.000 msec
 timecounter: Timecounter "i8254" frequency 1193182 Hz quality 100
 innotek GmbH VirtualBox (1.2)
 mainbus0 (root)
 ACPI: RSDP 0xe0000 000024 (v02 VBOX  )
-ACPI: XSDT 0x3fff0030 00003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
-ACPI: FACP 0x3fff00f0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
-ACPI: DSDT 0x3fff0470 0021C8 (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
-ACPI: FACS 0x3fff0200 000040
-ACPI: APIC 0x3fff0240 000054 (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
-ACPI: SSDT 0x3fff02a0 0001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20100528)
+ACPI: XSDT 0x3ff0030 00003C (v01 VBOX   VBOXXSDT 00000001 ASL  00000061)
+ACPI: FACP 0x3ff00f0 0000F4 (v04 VBOX   VBOXFACP 00000001 ASL  00000061)
+ACPI: DSDT 0x3ff0470 0021C8 (v02 VBOX   VBOXBIOS 00000002 INTL 20100528)
+ACPI: FACS 0x3ff0200 000040
+ACPI: APIC 0x3ff0240 000054 (v02 VBOX   VBOXAPIC 00000001 ASL  00000061)
+ACPI: SSDT 0x3ff02a0 0001CC (v01 VBOX   VBOXCPUT 00000002 INTL 20100528)
 ACPI: All ACPI Tables successfully acquired
 ioapic0 at mainbus0 apid 1: pa 0xfec00000, version 0x20, 24 pins
 cpu0 at mainbus0 apid 0: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz, id 0x40661
@@ -91,7 +92,7 @@ attimer1: attached to pcppi0
 acpicpu0 at cpu0: ACPI CPU
 acpicpu0: C1: HLT, lat   0 us, pow     0 mW
 timecounter: Timecounter "clockinterrupt" frequency 100 Hz quality 0
-timecounter: Timecounter "TSC" frequency 2294869580 Hz quality 3000
+timecounter: Timecounter "TSC" frequency 2294906460 Hz quality 3000
 acpiacad0: AC adapter online.
 IPsec: Initialized Security Association Processing.
 uhub0 at usb0: vendor 0x106b OHCI root hub, class 9/0, rev 1.00/1.00, addr 1
@@ -120,3 +121,108 @@ wsdisplay0: screen 1 added (80x25, vt100 emulation)
 wsdisplay0: screen 2 added (80x25, vt100 emulation)
 wsdisplay0: screen 3 added (80x25, vt100 emulation)
 wsdisplay0: screen 4 added (80x25, vt100 emulation)
+uvm_fault(0xffffffff810ba6c0, 0xffff8000022aa000, 1) -> e
+fatal page fault in supervisor mode
+trap type 6 code 0 rip ffffffff806744fd cs 8 rflags 10287 cr2 ffff8000022aa000 ilevel 0 rsp fffffe800181cbd8
+curlwp 0xfffffe8003836660 pid 452.1 lowest kstack 0xfffffe800181a2c0
+kernel: page fault trap, code=0
+Stopped in pid 452.1 (mount_msdos) at   netbsd:fillinusemap+0xa0:       movzwl  0(%rdx,%r15,1),%edx
+db{0}> trace
+fillinusemap() at netbsd:fillinusemap+0xa0
+msdosfs_mountfs() at netbsd:msdosfs_mountfs+0x516
+msdosfs_mount() at netbsd:msdosfs_mount+0x2f0
+VFS_MOUNT() at netbsd:VFS_MOUNT+0x34
+mount_domount() at netbsd:mount_domount+0x122
+do_sys_mount() at netbsd:do_sys_mount+0x2dd
+sys___mount50() at netbsd:sys___mount50+0x33
+syscall() at netbsd:syscall+0x9a
+--- syscall (number 410) ---
+7f7ff7083caa:
+db{0}> show registers
+ds          cbd8
+es          2ea8
+fs          1ed1
+gs          cb98
+rdi         fffffe8002442ea8
+rsi         2ff
+rbp         fffffe800181cc18
+rbx         fffffe8002ce0008
+rdx         ffff80000229e000
+rcx         1
+rax         ffff
+r8          fffffe8003836660
+r9          121
+r10         4822b6b6368cc79f
+r11         fffffe80014f5000
+r12         6000
+r13         c000
+r14         1
+r15         c000
+rip         ffffffff806744fd    fillinusemap+0xa0
+cs          8
+rflags      10287
+rsp         fffffe800181cbd8
+ss          10
+netbsd:fillinusemap+0xa0:       movzwl  0(%rdx,%r15,1),%edx
+db{0}> ps
+PID    LID S CPU     FLAGS       STRUCT LWP *               NAME WAIT    
+452  >   1 7   0         0   fffffe8003836660        mount_msdos         
+104      1 3   0        80   fffffe8001f73640              mount wait    
+106      1 3   0        80   fffffe8003041a20                 sh wait    
+627      1 3   0        80   fffffe8003b53180                 sh wait    
+43       1 3   0        80   fffffe80039885e0                 sh ttyraw  
+632      1 3   0        80   fffffe8003988a00                 sh wait    
+645      1 3   0        80   fffffe8003a985c0               sshd select  
+694      1 3   0        80   fffffe8003a989e0               sshd select  
+698      1 3   0        80   fffffe8003b539c0              getty ttyraw  
+693      1 3   0        80   fffffe8003b535a0              getty ttyraw  
+652      1 3   0        80   fffffe8003dd4160              getty ttyraw  
+430      1 3   0        80   fffffe80015ea0e0              login wait    
+670      1 3   0        80   fffffe8001f73220               cron nanoslp 
+537      1 3   0        80   fffffe80037e0a40              inetd kqueue  
+434      1 3   0        80   fffffe8003a981a0               qmgr kqueue  
+611      1 3   0        80   fffffe8001f73a60             pickup kqueue  
+628      1 3   0        80   fffffe8003836a80             master kqueue  
+391      1 3   0        80   fffffe80037e0620               sshd select  
+383      1 3   0        80   fffffe80030411e0             powerd kqueue  
+220      1 2   0         0   fffffe80039881c0            syslogd         
+155      1 3   0        80   fffffe8003041600             dhcpcd select  
+1        1 3   0        80   fffffe8001757960               init wait    
+0       48 3   0       200   fffffe80037e0200               vnd0 vndbp   
+0       46 3   0       200   fffffe8001760560            physiod physiod 
+0       45 3   0       200   fffffe8003dd4580           aiodoned aiodoned
+0       44 3   0       200   fffffe8003dd49a0            ioflush syncer  
+0       43 3   0       200   fffffe8001760140           pgdaemon pgdaemon
+0       40 3   0       200   fffffe800174e940          atapibus0 sccomp  
+0       37 3   0       200   fffffe80015ea500               usb1 usbevt  
+0       36 3   0       200   fffffe800174e520               usb0 usbevt  
+0       35 3   0       200   fffffe800174e100          cryptoret crypto_w
+0       34 3   0       200   fffffe8001757540              unpgc unpgc   
+0       33 3   0       200   fffffe8001757120        vmem_rehash vmem_rehash
+0       32 3   0       200   fffffe8001760980           acpibat0 acpibat0
+0       23 3   0       200   fffffe80015ea920               iic0 iicintr 
+0       22 3   0       200   fffffe80015010c0         usbtask-dr usbtsk  
+0       21 3   0       200   fffffe80015014e0         usbtask-hc usbtsk  
+0       20 3   0       200   fffffe8001501900            atabus1 atath   
+0       19 3   0       200   fffffe80014d50a0            atabus0 atath   
+0       18 3   0       200   fffffe80014d54c0           lnxsyswq lnxsyswq
+0       17 3   0       200   fffffe80014d58e0               pms0 pmsreset
+0       16 3   0       200   fffffe8003ec3080             sysmon smtaskq 
+0       15 3   0       200   fffffe8003ec34a0         pmfsuspend pmfsuspend
+0       14 3   0       200   fffffe8003ec38c0           pmfevent pmfevent
+0       13 3   0       200   fffffe8003ef6060         sopendfree sopendfr
+0       12 3   0       200   fffffe8003ef6480           nfssilly nfssilly
+0       11 3   0       200   fffffe8003ef68a0            cachegc cachegc 
+0       10 3   0       200   fffffe8003f16040              vrele vrele   
+0        9 3   0       200   fffffe8003f16460             vdrain vdrain  
+0        8 3   0       200   fffffe8003f16880          modunload mod_unld
+0        7 3   0       200   fffffe8003f22020            xcall/0 xcall   
+0        6 1   0       200   fffffe8003f22440          softser/0         
+0        5 1   0       200   fffffe8003f22860          softclk/0         
+0        4 1   0       200   fffffe8003f28000          softbio/0         
+0        3 1   0       200   fffffe8003f28420          softnet/0         
+0        2 1   0       201   fffffe8003f28840             idle/0         
+0        1 3   0       200   ffffffff8100a5e0            swapper uvm     
+db{0}> call dumpsys
+dumping to dev 0,1 (offset=1967544, size=16271):
+dump 

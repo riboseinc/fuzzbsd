@@ -14,8 +14,8 @@ CPU: Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz (2294.74-MHz K8-class CPU)
   AMD Features2=0x21<LAHF,ABM>
   Structured Extended Features=0x2000<NFPUSG>
   TSC: P-state invariant
-real memory  = 1073676288 (1023 MB)
-avail memory = 996921344 (950 MB)
+real memory  = 134152192 (127 MB)
+avail memory = 86577152 (82 MB)
 Event timer "LAPIC" quality 400
 ACPI APIC Table: <VBOX   VBOXAPIC>
 random: unblocking device.
@@ -78,20 +78,24 @@ ugen0.1: <Apple> at usbus0
 uhub0: <Apple OHCI root HUB, class 9/0, rev 1.00/1.00, addr 1> on usbus0
 ugen1.1: <Intel> at usbus1
 uhub1: <Intel EHCI root HUB, class 9/0, rev 2.00/1.00, addr 1> on usbus1
+ada0 at ata0 bus 0 scbus0 target 0 lun 0
+ada0: <VBOX HARDDISK 1.0> ATA-6 device
 cd0 at ata1 bus 0 scbus1 target 0 lun 0
 cd0: <VBOX CD-ROM 1.0> Removable CD-ROM SCSI device
 cd0: Serial Number VB2-01700376
 cd0: 33.300MB/s transfers (UDMA2, ATAPI 12bytes, PIO 65534bytes)
 cd0: Attempt to query device size failed: NOT READY, Medium not present
-ada0 at ata0 bus 0 scbus0 target 0 lun 0
-ada0: <VBOX HARDDISK 1.0> ATA-6 device
 ada0: Serial Number VBa8519eec-bd0b8736
 ada0: 33.300MB/s transfers (UDMA2, PIO 65536bytes)
 ada0: 16384MB (33554432 512 byte sectors)
 taskqgroup_adjust failed cnt: 1 stride: 1 mp_ncpus: 1 smp_started: 0
 taskqgroup_adjust failed cnt: 1 stride: 1 mp_ncpus: 1 smp_started: 0
-Timecounter "TSC-low" frequency 1147371524 Hz quality 1000
+Timecounter "TSC-low" frequency 1147369681 Hz quality 1000
 Trying to mount root from ufs:/dev/ada0s1a [rw]...
+WARNING: / was not properly dismounted
+WARNING: /: mount pending error: blocks 64 files 2
+warning: total configured swap (209664 pages) exceeds maximum recommended amount (188448 pages).
+warning: increase kern.maxswzone or reduce amount of swap.
 uhub0: 12 ports with 12 removable, self powered
 em0: link state changed to UP
 uhub1: 12 ports with 12 removable, self powered

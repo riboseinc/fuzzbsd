@@ -1,0 +1,53 @@
+GNU gdb 6.1.1 [FreeBSD]
+Copyright 2004 Free Software Foundation, Inc.
+GDB is free software, covered by the GNU General Public License, and you are
+welcome to change it and/or distribute copies of it under certain conditions.
+Type "show copying" to see the conditions.
+There is absolutely no warranty for GDB.  Type "show warranty" for details.
+This GDB was configured as "amd64-marcel-freebsd"...
+
+Unread portion of the kernel message buffer:
+panic: vm_fault: fault on nofault entry, addr: fffffe00066bd000
+cpuid = 0
+KDB: stack backtrace:
+#0 0xffffffff80b24077 at kdb_backtrace+0x67
+#1 0xffffffff80ad93e2 at vpanic+0x182
+#2 0xffffffff80ad9253 at panic+0x43
+#3 0xffffffff80e12601 at vm_fault_hold+0x2721
+#4 0xffffffff80e0fe98 at vm_fault+0x78
+#5 0xffffffff80fa0e39 at trap_pfault+0xf9
+#6 0xffffffff80fa04cc at trap+0x26c
+#7 0xffffffff80f84141 at calltrap+0x8
+#8 0xffffffff8098e8f6 at msdosfs_mount+0x10f6
+#9 0xffffffff80ba1ae0 at vfs_donmount+0xf90
+#10 0xffffffff80ba0b22 at sys_nmount+0x72
+#11 0xffffffff80fa168e at amd64_syscall+0x4ce
+#12 0xffffffff80f8442b at Xfast_syscall+0xfb
+Uptime: 1m16s
+Dumping 68 out of 95 MB:..24%..47%..70%..94%
+
+#0  doadump (textdump=<value optimized out>) at pcpu.h:221
+221	pcpu.h: No such file or directory.
+	in pcpu.h
+(kgdb) bt
+#0  doadump (textdump=<value optimized out>) at pcpu.h:221
+#1  0xffffffff80ad8e69 in kern_reboot (howto=260) at /usr/src/sys/kern/kern_shutdown.c:366
+#2  0xffffffff80ad941b in vpanic (fmt=<value optimized out>, ap=<value optimized out>) at /usr/src/sys/kern/kern_shutdown.c:759
+#3  0xffffffff80ad9253 in panic (fmt=0x0) at /usr/src/sys/kern/kern_shutdown.c:690
+#4  0xffffffff80e12601 in vm_fault_hold (map=<value optimized out>, vaddr=<value optimized out>, fault_type=<value optimized out>, 
+    fault_flags=<value optimized out>, m_hold=<value optimized out>) at /usr/src/sys/vm/vm_fault.c:330
+#5  0xffffffff80e0fe98 in vm_fault (map=0xfffff80003000000, vaddr=<value optimized out>, fault_type=1 '\001', fault_flags=<value optimized out>)
+    at /usr/src/sys/vm/vm_fault.c:273
+#6  0xffffffff80fa0e39 in trap_pfault (frame=0xfffffe000025b410, usermode=0) at /usr/src/sys/amd64/amd64/trap.c:741
+#7  0xffffffff80fa04cc in trap (frame=0xfffffe000025b410) at /usr/src/sys/amd64/amd64/trap.c:442
+#8  0xffffffff80f84141 in calltrap () at /usr/src/sys/amd64/amd64/exception.S:236
+#9  0xffffffff8098abdb in fillinusemap (pmp=<value optimized out>) at /usr/src/sys/fs/msdosfs/msdosfs_fat.c:904
+#10 0xffffffff8098e8f6 in msdosfs_mount (mp=0xfffff800033ff000) at /usr/src/sys/fs/msdosfs/msdosfs_vfsops.c:730
+#11 0xffffffff80ba1ae0 in vfs_donmount (td=<value optimized out>, fsflags=<value optimized out>, fsoptions=<value optimized out>)
+    at /usr/src/sys/kern/vfs_mount.c:818
+#12 0xffffffff80ba0b22 in sys_nmount (td=0xfffff8000340d500, uap=0xfffffe000025ba40) at /usr/src/sys/kern/vfs_mount.c:417
+#13 0xffffffff80fa168e in amd64_syscall (td=<value optimized out>, traced=0) at subr_syscall.c:135
+#14 0xffffffff80f8442b in Xfast_syscall () at /usr/src/sys/amd64/amd64/exception.S:396
+#15 0x0000000800a70f6a in ?? ()
+Previous frame inner to this frame (corrupt stack?)
+Current language:  auto; currently minimal
